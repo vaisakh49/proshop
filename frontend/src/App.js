@@ -4,6 +4,7 @@ import HomeScreen from './screens/HomeScreen';
 import Footer from './components/Footer';
 
 import { Container } from 'react-bootstrap';
+import './index.css';
 
 function App() {
   return (
