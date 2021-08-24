@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Product from '../components/Product';
-// import products from '../products';
 
 import { Col, Row } from 'react-bootstrap';
 // import PropTypes from 'prop-types';

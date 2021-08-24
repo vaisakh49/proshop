@@ -4,7 +4,6 @@ import { Col, Row, Image, ListGroup, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import Rating from '../components/Rating';
-// import products from '../products';
 // import PropTypes from 'prop-types';
 
 const ProductScreen = ({ match }) => {
@@ -18,8 +17,7 @@ const ProductScreen = ({ match }) => {
 
   useEffect(() => {
     fetchProduct();
-  }, []);
-  // const product = products.find((p) => p._id === match.params.id);
+  });
   return (
     <>
       <Link className='btn btn-light my-3' to='/'>
