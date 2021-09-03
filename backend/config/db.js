@@ -6,9 +6,9 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log(`MONGO DB connected:${conn.connection.host}`);
+    console.log(`MONGO DB connected:${conn.connection.host}`.cyan.underline);
   } catch (err) {
-    console.error(`Error: ${err.message}`);
+    console.error(`Error: ${err.message}`.red.underline.bold);
     process.exit(1);
   }
 };
