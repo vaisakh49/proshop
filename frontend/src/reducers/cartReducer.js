@@ -4,7 +4,7 @@ import {
   CART_CLEAR_ITEMS,
 } from "../constance/cartConstance"
 
-export const cartReducer = (state = { cartItem: [] }, action) => {
+export const cartReducer = (state = { cartItems: [] }, action) => {
   switch (action.type) {
     case CART_ADD_ITEM:
       const item = action.payload
