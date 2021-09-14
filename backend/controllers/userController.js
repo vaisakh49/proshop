@@ -24,4 +24,17 @@ const authUser = asyncHandler(async (req, res) => {
   }
 })
 
-export { authUser }
+// @desc    Get user profile
+// @route   GET api/user/profile
+// @access  Private
+const getUserProfile = asyncHandler(async (req, res) => {
+  const user = req.user
+  res.send({
+    _id: user._id,
+    name: user.name,
+    email: user.email,
+    isAdmin: user.isAdmin,
+  })
+})
+
+export { authUser, getUserProfile }
