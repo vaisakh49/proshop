@@ -1,7 +1,7 @@
 import React from "react"
 import { LinkContainer } from "react-router-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { logout } from "../actions/userAction"
+import { logoutUser } from "../actions/userAction"
 // import PropTypes from 'prop-types';
 
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap"
@@ -12,7 +12,7 @@ const Header = (props) => {
   const { userInfo } = userLogin
 
   const logoutHandler = () => {
-    dispatch(logout())
+    dispatch(logoutUser())
   }
 
   return (
