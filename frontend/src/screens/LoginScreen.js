@@ -8,7 +8,7 @@ import FormContainer from "../components/FormContainer"
 import { login } from "../actions/userAction"
 // import PropTypes from 'prop-types'
 
-const LoginScreen = (props) => {
+const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -17,10 +17,16 @@ const LoginScreen = (props) => {
   const userLogin = useSelector((state) => state.userLogin)
   const { loading, error, userInfo } = userLogin
 
+  const redirect = location.search ? location.search.split("=")[1] : "/"
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(login(email, password))
   }
+  useEffect(() => {
+    if (userInfo) {
+      history.push(redirect)
+    }
+  }, [history, userInfo, redirect])
 
   return (
     <FormContainer>
@@ -50,6 +56,14 @@ const LoginScreen = (props) => {
           Sign In
         </Button>
       </Form>
+      <Row className="py-3">
+        <Col>
+          New Customer?{"  "}
+          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
+            Register
+          </Link>
+        </Col>
+      </Row>
     </FormContainer>
   )
 }
