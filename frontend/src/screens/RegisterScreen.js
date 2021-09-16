@@ -19,14 +19,16 @@ const LoginScreen = ({ location, history }) => {
 
   const userRegister = useSelector((state) => state.userRegister)
   const { loading, error, userInfo } = userRegister
-  const url = location
-  console.log(url)
 
   const redirect = location.search ? location.search.split("=")[1] : "/"
 
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(registerUser(email, password))
+    if (password !== confirmPassword) {
+      setMessage("Password do not match")
+    } else {
+      dispatch(registerUser(name, email, password))
+    }
   }
   useEffect(() => {
     if (userInfo) {
@@ -37,6 +39,7 @@ const LoginScreen = ({ location, history }) => {
   return (
     <FormContainer>
       <h1>Sign Up</h1>
+      {message && <Message variant="danger">{message}</Message>}
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
@@ -77,7 +80,7 @@ const LoginScreen = ({ location, history }) => {
           ></Form.Control>
         </Form.Group>
         <Button type="submit" variant="primary">
-          Sign In
+          Sign Up
         </Button>
       </Form>
       <Row className="py-3">
