@@ -7,6 +7,7 @@ import ProfileScreen from "./screens/ProfileScreen"
 import HomeScreen from "./screens/HomeScreen"
 import ProductScreen from "./screens/ProductScreen"
 import CartScreen from "./screens/CartScreen"
+import ShippingScreen from "./screens/ShippingScreen"
 
 import Footer from "./components/Footer"
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/profile" component={ProfileScreen} />
           <Route path="/product/:id" component={ProductScreen} exact />
           <Route path="/cart/:id?" component={CartScreen} />
+          <Route path="/shipping" component={ShippingScreen} />
           <Route path="/" component={HomeScreen} exact />
         </Container>
       </main>
