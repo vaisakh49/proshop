@@ -1,19 +1,20 @@
-import React from "react"
-import { BrowserRouter as Router, Route } from "react-router-dom"
-import Header from "./components/Header"
-import RegisterScreen from "./screens/RegisterScreen"
-import LoginScreen from "./screens/LoginScreen"
-import ProfileScreen from "./screens/ProfileScreen"
-import HomeScreen from "./screens/HomeScreen"
-import ProductScreen from "./screens/ProductScreen"
-import CartScreen from "./screens/CartScreen"
-import ShippingScreen from "./screens/ShippingScreen"
-import PaymentScreen from "./screens/PaymentScreen"
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Header from "./components/Header";
+import RegisterScreen from "./screens/RegisterScreen";
+import LoginScreen from "./screens/LoginScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
+import CartScreen from "./screens/CartScreen";
+import ShippingScreen from "./screens/ShippingScreen";
+import PaymentScreen from "./screens/PaymentScreen";
 
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
 
-import { Container } from "react-bootstrap"
-import "./index.css"
+import { Container } from "react-bootstrap";
+import "./index.css";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 
 function App() {
   return (
@@ -28,12 +29,13 @@ function App() {
           <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/shipping" component={ShippingScreen} />
           <Route path="/payment" component={PaymentScreen} />
+          <Route path="/placeorder" component={PlaceOrderScreen} />
           <Route path="/" component={HomeScreen} exact />
         </Container>
       </main>
       <Footer />
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
