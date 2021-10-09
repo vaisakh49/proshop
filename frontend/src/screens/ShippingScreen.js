@@ -1,27 +1,27 @@
-import React, { useState } from "react"
-import { Form, Button } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
-import CheckoutSteps from "../components/CheckoutSteps"
-import FormContainer from "../components/FormContainer"
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import CheckoutSteps from "../components/CheckoutSteps";
+import FormContainer from "../components/FormContainer";
 // import PropTypes from "prop-types"
-import { saveShippingAddress } from "../actions/cartAction"
+import { saveShippingAddress } from "../actions/cartAction";
 
 const ShippingScreen = ({ history }) => {
-  const cart = useSelector((state) => state.cart)
-  const { shippingAddress } = cart
+  const cart = useSelector((state) => state.cart);
+  const { shippingAddress } = cart;
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const [address, setAddress] = useState(shippingAddress.address)
-  const [city, setCity] = useState(shippingAddress.city)
-  const [postalcode, setPostalCode] = useState(shippingAddress.postalcode)
-  const [country, setCountry] = useState(shippingAddress.country)
+  const [address, setAddress] = useState(shippingAddress.address);
+  const [city, setCity] = useState(shippingAddress.city);
+  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
+  const [country, setCountry] = useState(shippingAddress.country);
 
   const submitHandler = (e) => {
-    e.preventDefault()
-    dispatch(saveShippingAddress({ address, city, postalcode, country }))
-    history.push("/payment")
-  }
+    e.preventDefault();
+    dispatch(saveShippingAddress({ address, city, postalCode, country }));
+    history.push("/payment");
+  };
 
   return (
     <FormContainer>
@@ -55,7 +55,7 @@ const ShippingScreen = ({ history }) => {
           <Form.Control
             type="text"
             placeholder="Enter postalcode"
-            value={postalcode}
+            value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
             required
           ></Form.Control>
@@ -76,9 +76,9 @@ const ShippingScreen = ({ history }) => {
         </Button>
       </Form>
     </FormContainer>
-  )
-}
+  );
+};
 
 // ShippingScreen.propTypes = {}
 
-export default ShippingScreen
+export default ShippingScreen;
