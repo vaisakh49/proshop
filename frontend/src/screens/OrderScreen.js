@@ -25,7 +25,7 @@ const OrderScreen = ({ match }) => {
   useEffect(() => {
     dispatch(getOrderDeatails(orderId));
     // eslint-disabled-next-line
-  }, []);
+  }, [dispatch, orderId]);
 
   return loading ? (
     <Loader />
